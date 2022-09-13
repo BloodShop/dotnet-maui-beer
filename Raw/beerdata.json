@@ -1,0 +1,46 @@
+﻿[
+  {
+    "Name": "American IPA",
+    "PriceBottle": 16.0,
+    "PriceHalf": 29.0,
+    "PriceThird": 24,
+    "AlcoholVolume": 5.8,
+    "Description": "An amber-colored beer with a citrus aroma and surprising bitterness that combine perfectly for a particularly satisfying and refreshing beer.",
+    "Notes": "Recommended for those who are new to the world of craft beers. Addictive and fascinating taste.",
+    "Image": "https://raw.githubusercontent.com/BloodShop/dotnet-maui-beer/main/Imgs/americanipa.png",
+    "Ingredients": [ "Malts", "Hops", "Water", "Yeast" ]
+  },
+  {
+    "Name": "Weissbier",
+    "PriceBottle": 16.0,
+    "PriceHalf": 29.0,
+    "PriceThird": 24.0,
+    "AlcoholVolume": 4.8,
+    "Description": "A light and hazy Bavarian style wheat beer. Characterized by a rich taste and delicate fruitiness.",
+    "Notes": "A combination of banana and clove flavors that come from the yeast in fermentation.",
+    "Image": "https://raw.githubusercontent.com/BloodShop/dotnet-maui-beer/main/Imgs/weissbier.png",
+    "Ingredients": [ "Pitch Lactobacillus", "Hops", "Water", "Barley" ]
+  },
+  {
+    "Name": "Smash (sp) Pilsner Malt - Saaz Hops",
+    "PriceBottle": 16.0,
+    "PriceHalf": 29.0,
+    "PriceThird": 24,
+    "AlcoholVolume": 5.0,
+    "Description": "Czech-style light beer, refreshing and easy to drink. Has rich malty flavors and balanced bitterness.",
+    "Notes": "Warning - since it's easy to drink, you won't be able to stop.",
+    "Image": "https://raw.githubusercontent.com/BloodShop/dotnet-maui-beer/main/Imgs/smash.png",
+    "Ingredients": [ "Fermaid-O at Wort Aeration", "Gypsum", "Water", "Yeast", "Saccharification Rest", "Mash-Out", "Hops", "Fermentables" ]
+  },
+  {
+    "Name": "Dry Stout Oak-Aged",
+    "PriceBottle": 16.0,
+    "PriceHalf": 29.0,
+    "PriceThird": 24,
+    "AlcoholVolume": 4.3,
+    "Description": "A dark Irish-style beer smoked with oak shavings. Has rich malty flavors and balanced bitterness.",
+    "Notes": "Winner of the \"Samuel Adams Long-Shot 2013\" competition, first place in the \"Best In Show\" title",
+    "Image": "https://raw.githubusercontent.com/BloodShop/dotnet-maui-beer/main/Imgs/stout.png",
+    "Ingredients": [ "Chocolate Malt", "Gypsum", "Water", "Dark Liquid Extract", "Saphir", "Yeast", "Oak Chips" ]
+  }
+]
