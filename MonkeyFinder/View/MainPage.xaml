@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SheetaBeer.View.MainPage"
+             xmlns:vm="clr-namespace:SheetaBeer.ViewModel"
+             xmlns:model="clr-namespace:SheetaBeer.Model"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             x:DataType="vm:BeersViewModel"
+             Title="{Binding Title}"
+             ios:Page.UseSafeArea="True">
+
+    <Grid Padding="17" RowDefinitions="auto,auto,*,auto"
+          ColumnDefinitions="*,*">
+
+        <HorizontalStackLayout Grid.ColumnSpan="2">
+            <Label FontSize="24" FontFamily="RobotoBold" Text="Our "/>
+            <Label FontSize="24" FontFamily="RobotoBold" Text="Beers"
+                   TextColor="{StaticResource SheetaYellow}"/>
+        </HorizontalStackLayout>
+
+        <RefreshView Grid.ColumnSpan="2"
+                     Grid.Row="2"
+                     Command="{Binding LoadBeersCommand}"
+                     IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView ItemsSource="{Binding Beers}"
+                        IsVisible="{Binding IsNotBusy}"
+                        BackgroundColor="Transparent"
+                        SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Beer">
+                        <Frame Margin="0" Padding="0" 
+                           Style="{StaticResource CardView}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type vm:BeersViewModel}}, Path=GoToDetailsCommand}"/>
+                            </Frame.GestureRecognizers>
+                            <Grid MinimumHeightRequest="305">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Frame Padding="0" HeightRequest="300"
+                                   Style="{StaticResource CardView}">
+                                    <Grid Padding="0"
+                                      ColumnDefinitions="AUTO,*">
+                                        <Image Grid.Column="0"
+                                           Aspect="AspectFill"
+                                           Source="{Binding Image}"/>
+                                    </Grid>
+                                </Frame>
+
+                                <!-- Beer Details -->
+                                <Grid Grid.Column="1" 
+                                  Padding="17">
+                                    <!--ColumnDefinitions="AUTO,AUTO,*,*,AUTO,AUTO"-->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="AUTO"/>
+                                        <RowDefinition Height="AUTO"/>
+                                        <RowDefinition Height="2*"/>
+                                        <!--<RowDefinition Height="*"/>-->
+                                        <RowDefinition Height="AUTO"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Text="{Binding Name}"
+                                       Style="{StaticResource LargeLabel}"
+                                       FontFamily="RobotoBold"
+                                       FontSize="24"/>
+                                    <!--, StringFormat={}{0} | {1}}-->
+                                    <Label Text="{Binding AlcoholVolume, StringFormat='\{0\}%'}"
+                                       Style="{StaticResource SmallLabel}"
+                                       Grid.Row="1"/>
+                                    <Label Text="{Binding Description}"
+                                       Style="{StaticResource MediumLabel}"
+                                       Grid.Row="2"
+                                       TextColor="#333"
+                                       Padding="0,8,0,0"/>
+                                    <!--<Label Text="{Binding Notes}"
+                                       Style="{StaticResource SmallLabel}"
+                                       Grid.Row="3"
+                                       TextColor="#333"
+                                       Padding="0,8,0,0"/>-->
+                                    <!-- Ingredients -->
+                                    <FlexLayout Grid.Row="3" BindableLayout.ItemsSource="{Binding Ingredients}" Wrap="Wrap">
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <Frame FlexLayout.AlignSelf="Start" Padding="0" CornerRadius="6" BorderColor="Transparent" Margin="2">
+                                                    <Label Text="{Binding .}" Padding="6" FontSize="14" BackgroundColor="#ECF7FF" />
+                                                </Frame>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </FlexLayout>
+                                    <!-- Image -->
+                                </Grid>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+        
+        <Button Text="Get a beer"
+                Style="{StaticResource ButtonOutline}"
+                Command="{Binding LoadBeersCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Grid.Row="3"
+                BackgroundColor="Black"
+                Margin="8"/>
+
+        <Button Text="Show on map"
+                Command="{Binding OpenMapCommand}"
+                Grid.Row="3"
+                Grid.Column="2"
+                Margin="8"
+                Style="{StaticResource ButtonOutline}"/>
+
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.RowSpan="4" Grid.ColumnSpan="2"/>
+
+    </Grid>
+
+</ContentPage>

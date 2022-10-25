@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SheetaBeer</name>
+    </assembly>
+    <members>
+        <member name="P:SheetaBeer.ViewModel.BaseViewModel.IsBusy">
+            <inheritdoc cref="F:SheetaBeer.ViewModel.BaseViewModel.isBusy"/>
+        </member>
+        <member name="P:SheetaBeer.ViewModel.BaseViewModel.Title">
+            <inheritdoc cref="F:SheetaBeer.ViewModel.BaseViewModel.title"/>
+        </member>
+        <member name="P:SheetaBeer.ViewModel.BeerDetailsViewModel.Beer">
+            <inheritdoc cref="F:SheetaBeer.ViewModel.BeerDetailsViewModel._beer"/>
+        </member>
+        <member name="P:SheetaBeer.ViewModel.BeersViewModel.IsRefreshing">
+            <inheritdoc cref="F:SheetaBeer.ViewModel.BeersViewModel.isRefreshing"/>
+        </member>
+        <member name="F:SheetaBeer.ViewModel.BeersViewModel.openMapCommand">
+            <summary>The backing field for <see cref="P:SheetaBeer.ViewModel.BeersViewModel.OpenMapCommand"/>.</summary>
+        </member>
+        <member name="P:SheetaBeer.ViewModel.BeersViewModel.OpenMapCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:SheetaBeer.ViewModel.BeersViewModel.OpenMapAsync"/>.</summary>
+        </member>
+        <member name="F:SheetaBeer.ViewModel.BeersViewModel.goToDetailsCommand">
+            <summary>The backing field for <see cref="P:SheetaBeer.ViewModel.BeersViewModel.GoToDetailsCommand"/>.</summary>
+        </member>
+        <member name="P:SheetaBeer.ViewModel.BeersViewModel.GoToDetailsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:SheetaBeer.ViewModel.BeersViewModel.GoToDetailsAsync(SheetaBeer.Model.Beer)"/>.</summary>
+        </member>
+        <member name="F:SheetaBeer.ViewModel.BeersViewModel.loadBeersCommand">
+            <summary>The backing field for <see cref="P:SheetaBeer.ViewModel.BeersViewModel.LoadBeersCommand"/>.</summary>
+        </member>
+        <member name="P:SheetaBeer.ViewModel.BeersViewModel.LoadBeersCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:SheetaBeer.ViewModel.BeersViewModel.LoadBeersAsync"/>.</summary>
+        </member>
+    </members>
+</doc>

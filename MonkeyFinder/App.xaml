@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SheetaBeer"
+             x:Class="SheetaBeer.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#FFC107</Color>
+            <Color x:Key="PrimaryDark">#FFA000</Color>
+            <Color x:Key="Accent">#00BCD4</Color>
+            <Color x:Key="SheetaYellow">#FAB100</Color>
+
+            
+
+            <Color x:Key="LightBackground">White</Color>
+            <Color x:Key="DarkBackground">Black</Color>
+
+            <Color x:Key="LabelTextDark">#1f1f1f</Color>
+            <Color x:Key="LabelText">White</Color>
+            
+            <Color x:Key="CardBackground">White</Color>
+            <Color x:Key="CardBackgroundDark">#1c1c1e</Color>
+
+            <FileImageSource x:Key="BackgroundImage">hopbanner.jpg</FileImageSource>
+            <FileImageSource x:Key="BackgroundImageDark">hopbannerdark.jpg</FileImageSource>
+            
+            <Style TargetType="Page" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundImageSource" Value="{AppThemeBinding Light={StaticResource BackgroundImage}, Dark={StaticResource BackgroundImageDark}}"/>
+              </Style>
+
+            <Color x:Key="LayoutItemBackground">#FFFCD7</Color>
+            <Color x:Key="LayoutItemBackgroundDark">#333</Color>
+            
+            <Style TargetType="Frame" x:Key="Ingredients">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LayoutItemBackground}, Dark={StaticResource LayoutItemBackgroundDark}}" />
+                <Setter Property="FlexLayout.AlignSelf" Value="Start"/>
+                <Setter Property="Padding" Value="3"/>
+                <Setter Property="CornerRadius" Value="2"/>
+                <Setter Property="Margin" Value="2"/>
+                <Setter Property="BorderColor" Value="Transparent"/>
+            </Style>
+
+			<Style ApplyToDerivedTypes="True" TargetType="NavigationPage">
+				<Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}" />
+				<Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+				<Setter Property="BarTextColor" Value="White" />
+			</Style>
+
+            <Style TargetType="Label" x:Key="BaseLabel">
+                <Setter Property="FontFamily" Value="OpenSansRegular" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LabelTextDark}, Dark={StaticResource LabelText}}" />
+            </Style>
+
+            <Style x:Key="MicroLabel" BasedOn="{StaticResource BaseLabel}" TargetType="Label">
+                <Setter Property="FontSize" Value="10"/>
+            </Style>
+
+            <Style x:Key="SmallLabel" BasedOn="{StaticResource BaseLabel}" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+            </Style>
+
+            <Style x:Key="MediumLabel" BasedOn="{StaticResource BaseLabel}" TargetType="Label">
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+
+            <Style x:Key="LargeLabel" BasedOn="{StaticResource BaseLabel}" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+
+            <Style TargetType="RefreshView" ApplyToDerivedTypes="True">
+                <Setter Property="RefreshColor" Value="{StaticResource Primary}" />
+            </Style>
+            
+            <Style x:Key="ButtonOutline" TargetType="Button">
+                <Setter Property="Background" Value="{AppThemeBinding Light={StaticResource LightBackground}, Dark={StaticResource DarkBackground}}"/>
+                <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+                <Setter Property="BorderColor" Value="{StaticResource Primary}"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="CornerRadius" Value="20"/>
+            </Style>
+            
+            <Style x:Key="CardView" TargetType="Frame">
+                <Setter Property="BorderColor" Value="#DDDDDD"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="Padding" Value="0"/>
+                <!--<Setter Property="Background" Value="{AppThemeBinding Light={StaticResource CardBackground}, Dark={StaticResource CardBackgroundDark}}"/>-->
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="IsClippedToBounds" Value="True"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
